@@ -23,8 +23,8 @@ RUN mkdir -p ${ANDROID_SDK_ROOT}/cmdline-tools && \
     mv ${ANDROID_SDK_ROOT}/cmdline-tools/cmdline-tools ${ANDROID_SDK_ROOT}/cmdline-tools/tools && \
     rm commandlinetools*linux*.zip
 
-RUN yes | sdkmanager --licenses
-    # sdkmanager "build-tools;30.0.2" "emulator"
+RUN yes | sdkmanager --licenses && \
+    sdkmanager "build-tools;30.0.2"
 
 RUN mkdir -p /home/gradle/actions-runner && \
     curl -O -L https://github.com/actions/runner/releases/download/v${RUNNER_VERSION}/actions-runner-linux-${RUNNER_ARCH}-${RUNNER_VERSION}.tar.gz && \
